@@ -10,6 +10,16 @@ export const Container = styled.main`
   max-width: 800px;
   height: 100%;
   min-height: 100vh;
+
+  img {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px 0;
+
+    @media(max-width: 480px) {
+      width: 80%;
+    }
+  }
 `
 
 export const Title = styled.h1`

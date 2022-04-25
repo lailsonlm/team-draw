@@ -3,7 +3,7 @@ import { useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 import { Footer } from "../components/Footer";
-import { Container, ListResult, ListItemsResult, Title, DrawTeams, FormList, TextAreaList, ParamsContainer, ParamsNumberPlayers } from "../styles/home";
+import { Container, ListResult, ListItemsResult, DrawTeams, FormList, TextAreaList, ParamsContainer, ParamsNumberPlayers } from "../styles/home";
 
 export default function Home() {
   const [result, setResult] = useState<string[][]>([]) 
@@ -66,7 +66,7 @@ export default function Home() {
       <title>Sorteio de Times</title>
     </Head>
     <Container>
-      <Title>Sorteio de Times</Title>
+      <img src="/logo.png" alt="Logo Sorteio de Times" />
       <ToastContainer />
       <DrawTeams>
         <FormList>
