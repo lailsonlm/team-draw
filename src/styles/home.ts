@@ -17,6 +17,10 @@ export const Title = styled.h1`
   font-size: 48px;
   font-weight: bold;
   color: #DBF227;
+
+  @media(max-width: 480px) {
+    font-size: 40px;
+  }
 `
 
 export const DrawTeams = styled.div`
@@ -25,8 +29,6 @@ export const DrawTeams = styled.div`
   align-items: center;
   justify-content: center;
   padding: 16px;
-  /* background: #9FC131; */
-  /* border: 1px solid #9FC131; */
   color: #9FC131;
   border-radius: 16px;
   width: 100%;
@@ -44,6 +46,7 @@ export const TextAreaList = styled.textarea`
   border-radius: 16px;
   background-color: #f8f8f8;
   resize: none;
+  box-shadow: 0 10px 15px -3px rgb(0, 0, 0, 0.1), 0 4px 6px -4px rgb(0, 0, 0, 0.1);
   :focus {
     outline: 3px solid #9FC131;
   }
@@ -55,34 +58,52 @@ export const ParamsContainer = styled.div`
   justify-content: space-between;
   width: 100%;
   margin-top: 24px;
-`
 
-export const DrawButton = styled.button`
-  font-size: 16px;
-  font-weight: bold;
-  padding: 12px 24px;
-  background: transparent;
-  color: #f8f8f8;
-  border: 1px solid #DBF227;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s ease;
-  :hover {
-    background: #DBF227;
-    color: #042940;
+  button {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 24px;
+    background: transparent;
+    color: #f8f8f8;
+    border: 1px solid #DBF227;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    :hover {
+      background: #DBF227;
+      color: #042940;
+    }
   }
 `
 
-export const InputNumberPlayers = styled.input`
-  width: 100px;
-  /* height: 150px; */
-  padding: 16px 24px;
-  font-size: 16px;
-  border-radius: 12px;
-  background-color: #f8f8f8;
-  resize: none;
-  :focus {
-    outline: 3px solid #9FC131;
+export const ParamsNumberPlayers = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  select {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    background-color: transparent;
+    color: #f8f8f8;
+    border: 1px solid #DBF227;
+    cursor: pointer;
+    resize: none;
+    :focus {
+      outline: 1px solid #DBF227;
+      background-color: #042940;
+      color: #DBF227;
+    }
+  }
+
+  label {
+    margin-right: 16px;
+    font-weight: bold;
+
+    @media(max-width: 480px) {
+      margin-right: 8px;
+    }
   }
 `
 
@@ -93,6 +114,10 @@ export const ListResult = styled.ul`
   font-weight: bold;
   width: 100%;
   padding: 16px;
+
+  @media(max-width: 480px) {
+    font-size: 16px;
+  }
 `
 
 export const ListItemsResult = styled.li`
@@ -102,6 +127,11 @@ export const ListItemsResult = styled.li`
   padding: 32px;
   background: #9FC131;
   overflow-wrap: break-word;
+  box-shadow: 0 10px 15px -3px rgb(0, 0, 0, 0.1), 0 4px 6px -4px rgb(0, 0, 0, 0.1);
+
+  @media(max-width: 480px) {
+    padding: 24px;
+  }
 `
 
 

@@ -1,15 +1,16 @@
+import Head from "next/head";
 import { useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
-import { Container, ListResult, ListItemsResult, Title, DrawTeams, FormList, TextAreaList, DrawButton, InputNumberPlayers, ParamsContainer } from "../styles/home";
+import { Footer } from "../components/Footer";
+import { Container, ListResult, ListItemsResult, Title, DrawTeams, FormList, TextAreaList, ParamsContainer, ParamsNumberPlayers } from "../styles/home";
 
 export default function Home() {
-  // const arrA = ['Lailson', 'Suanderson', 'Nando', 'Rafael', 'Bito', 'Rodrigo', 'Anderson', 'Bruno', 'Sorin', 'Matheus', 'Deda', 'Serginho', 'Arthur', 'Vinicius', 'Dede', 'Joma', 'Hulk', 'Original', 'Diego', 'Edinho', 'Felipe'];
-  const [result, setResult] = useState<string[]>([]) 
+  const [result, setResult] = useState<string[][]>([]) 
   const [nameList, setNameList] = useState<string>() 
   const [numberPlayers, setNumberPlayers] = useState(5) 
   
-  const notifyError = () => toast.error('Digite o nome dos jogadores', {
+  const notifyError = () => toast.error('Digite o nome dos jogadores!', {
     position: "top-right",
     autoClose: 5000,
     hideProgressBar: false,
@@ -17,8 +18,9 @@ export default function Home() {
     pauseOnHover: true,
     draggable: true,
     progress: undefined,
-    theme: 'colored'
+    theme: 'colored',
     });
+    
   const notifySucess = () => toast.success('Sorteio realizado!', {
     position: "top-right",
     autoClose: 5000,
@@ -59,6 +61,10 @@ export default function Home() {
   }
 
   return (
+    <>
+    <Head>
+      <title>Sorteio de Times</title>
+    </Head>
     <Container>
       <Title>Sorteio de Times</Title>
       <ToastContainer />
@@ -73,18 +79,27 @@ export default function Home() {
           />
         </FormList>
         <ParamsContainer>
-          <div>
-            <label htmlFor="players-number">Qtd. de jogadores por time</label>
-            <InputNumberPlayers 
-              type='number' 
+          <ParamsNumberPlayers>
+            <label htmlFor="players-number">Jogadores por time:</label>
+            <select 
               id='players-number' 
               value={numberPlayers} 
-              min={1}
               onChange={(e => setNumberPlayers(e.target.value as unknown as number))}
-            />
-          </div>
+            >
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </ParamsNumberPlayers>
 
-          <DrawButton onClick={drawTeams}>Sortear</DrawButton>
+          <button onClick={drawTeams}>Sortear</button>
         </ParamsContainer>
       </DrawTeams>
 
@@ -92,13 +107,18 @@ export default function Home() {
         {result.map((team, index) => {
           return (
             <ListItemsResult key={index}>
-              {`Time ${index + 1}: ${team}`}
-            </ListItemsResult>
+            {`Time ${index + 1 }`}
+            <br/>
+            <br/>
+            {team.join(', ')}
+          </ListItemsResult>
           )
         })}
       </ListResult>
-
     </Container>
+
+    <Footer />
+    </>
   )
 }
 
