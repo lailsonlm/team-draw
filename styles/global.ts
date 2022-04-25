@@ -8,7 +8,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: #042940;
+    background: linear-gradient(180deg, rgba(4, 41, 64, 0.9) 0%, rgba(4, 41, 64, 0.9) 100%), url("/bg.jpg") center no-repeat;
+    background-size: cover;
     color: #042940;
     font-family: 'Roboto', sans-serif;
   }
