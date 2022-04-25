@@ -1,6 +1,6 @@
+/* eslint-disable @next/next/no-page-custom-font */
 import { Html, Head, Main, NextScript } from 'next/document'
 import Document from 'next/dist/pages/_document'
-import { GetServerSideProps } from 'next/types'
 
 export default class MyDocument extends Document {
   render() {
@@ -31,12 +31,5 @@ export default class MyDocument extends Document {
         </body>
       </Html>
     )
-  }
-}
-
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  return {
-    props: {}
   }
 }
